@@ -99,3 +99,9 @@ in python we can do this in 2 ways
 """
 print(f"My name is {name}")
 print(f"the sum of x and y is {sum}")
+
+"""
+we made variables
+we added variables
+we printed variables using f-strings
+"""
