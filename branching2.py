@@ -25,14 +25,16 @@ print("3. Junior")
 print("4. Senior")
 option = input("Enter your grade level: ")
 
-if option == "freshman":
+if (option == "freshman") or (option == "Freshman"):
     print("You get $5")
-if option == "sophmore":
+if (option == "sophmore") or (option == "Sophmore"):
     print("You get $7")
-if option == "junior":
+if (option == "junior") or (option == "Junior"):
     print("You get $9")
-if option == "senior":
+if (option == "senior") or (option == "Senior"):
     print("You get $11")
+if (option == "Super Senior") or (option == "super senior"):
+    print("Go to college")
 
 """ 
 your goal is to match the output to the option using ifs and elifs
