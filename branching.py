@@ -56,3 +56,28 @@ elif x % 3 == 0:
     print("example")
 else:
     print("fail condition")
+
+"""
+Last class we covered if statements: IF-ELIF-ELSE
+branchingg paths within our programs
+Booleans: true or false values
+Conditional statements: statements thzt can be evaluated to true or false
+
+if <conditional>:
+    <code block>
+elif <conditional>:
+    <code block>
+else:
+    <code block>
+    
+equality: ==
+variable assignment: =
+
+there are time times where you want to evaluate more than  one codiitional
+<coditional> AND <other conditional>
+
+for ex, for something to be a triangle
+angle 1 == 90 AND angle 2 + angle 3 == 90
+condition 1: angle 1 == 90
+condition 2: angle 2 + angle 3 == 90
+"""
