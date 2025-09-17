@@ -49,4 +49,3 @@ while check == False:
         print(3)
     elif option == "quit":
         check = True
-        
