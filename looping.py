@@ -24,9 +24,9 @@ while x <= len(nums):
     sum += nums[x]
     x += 1
     
-    print(f"the sums is {sum}")"""
+    print(f"the sums is {sum}")
     
-""" 
+
 looping stetments are useful for  repeating a ton of math over and over again. How else are they useful?
 
 from a program design standpoint, they also allow us to repeat an entire program until we quit
@@ -49,3 +49,4 @@ while check == False:
         print(3)
     elif option == "quit":
         check = True
+        
