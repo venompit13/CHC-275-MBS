@@ -12,5 +12,5 @@ if-elif-else: problem
 
 yo=u have one type of fish (cornivorous, salt water, community).
 
-Problem 3: powerlevels.py
+Problem 3: powerlevels.py.
 """
