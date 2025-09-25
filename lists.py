@@ -70,5 +70,49 @@ while i <= 3:
     i = i + 1
     
 """ 
+most of the time index errors occur from not having suitable exit condition
+cumbersome to use
 
+another weay to do this almost equivalent to this
+use for-loops to do almost same thing
 """
+
+mylist = [5,10,15,20,25,30]
+print("for-loop")
+for huh in mylist:
+        print(huh)
+        
+""" 
+for-loops:
+    create temporary vartiable tassigned toi the name you give
+    it assigns that tempv to location you created
+    does the procedure in code block
+    goes to nect item in the list
+huh =/= mylist[i]
+    2 seperate things with same value
+"""
+
+for huh in mylist:
+    huh = huh + 5
+print(mylist)
+
+i = 0
+while i <= len(mylist) - 1:
+    mylist[i] = mylist[i] * 5
+    i = i + 1
+print(mylist)
+
+""" 
+for-loop did not update list
+    crate copies
+while loop updated list
+    directly acces the list
+    
+this while loop makes a huige assumption about the list, the lists last object is at mylist[3]
+the list could be length 0 or length 100
+
+there is a way to intrinsically get the last value of the list
+length function
+"""
+
+print(len(mylist))
