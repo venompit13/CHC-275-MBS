@@ -20,7 +20,7 @@ there are two new functions involved:
     len(<name of list>)  = this returns the length of the list
 """
 
-for i in range(len(mylist)):
+"""for i in range(len(mylist)):
     print(mylist[i])
     
 for num in mylist:
@@ -29,7 +29,7 @@ for num in mylist:
 i = 0
 while i < len(mylist):
     print(mylist[i])
-    i = i + 1
+    i = i + 1"""
     
 """ 
 1) for-i loop
@@ -37,10 +37,10 @@ while i < len(mylist):
 3) while loop
 """
 
-print("example 2")
+"""print("example 2")
 for i in range(len(mylist)):
     mylist[i] = mylist[i] + 5
-print (mylist)
+print (mylist)"""
 
 """ 
 lists in python are dynamically sized  we can add and remove elemnts from the list
@@ -48,11 +48,11 @@ lists in python are dynamically sized  we can add and remove elemnts from the li
 to add something to the list:
     -<nameoflist>.append(<value we want to add to list)
 """
-print("example 3")
+"""print("example 3")
 names = ["john","james","paul"]
 print (names)
 names.append("zach")
-print(names)
+print(names)"""
 
 """ 
 two ways top remove from list:
@@ -60,7 +60,7 @@ two ways top remove from list:
     by the value
 """
 
-names.remove("john")
+"""names.remove("john")
 print(names)
 
 names.pop(0)
@@ -76,4 +76,31 @@ while check == False:
     else:
         names.append(name)
         
-print(names)
+print(names)"""
+
+print("example 5")
+
+students = ["john","zach","paul"]
+GPAs = [88,71,85]
+
+""" 
+tied by the index
+"""
+
+for i in range(len(students)):
+    print(f"Student: {students[i]} GPA: {GPAs[i]}")
+    
+""" 
+we assuming that the user has perfect knowledge and can access the contents and indces of the list
+bad assumption because lists are dynamically sized (same indices line up, bad to assume this)
+
+need a way to search our list
+how get indices out of listy without having to look at code before hand
+
+.index()
+
+<nameoflist>.index(<value>)
+"""
+print("example 6")
+index = students.index("zach")
+print(index)
