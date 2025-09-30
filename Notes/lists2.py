@@ -60,6 +60,20 @@ two ways top remove from list:
     by the value
 """
 
-names.remove("joe")
+names.remove("john")
 print(names)
 
+names.pop(0)
+print(names)
+
+print("example 4")
+names = []
+check = False
+while check == False:
+    name = input("Enter the name you want to add to the list ")
+    if name == "quit":
+        check = True
+    else:
+        names.append(name)
+        
+print(names)
