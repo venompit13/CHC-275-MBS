@@ -60,7 +60,7 @@ two ways top remove from list:
     by the value
 """
 
-"""names.remove("john")
+"""snames.remove("john")
 print(names)
 
 names.pop(0)
