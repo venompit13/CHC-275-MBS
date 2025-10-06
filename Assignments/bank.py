@@ -20,7 +20,7 @@ while check == False:
         bal = int(bal)
         balances.append(bal) #append adds to the list this is adding to balances list
     elif option == "2":
-        name = input("Enter account name you want to remove:")
+        name = input("Enter account name you want to remove: ")
         index = names.index(name)
         names.pop(index) #pop removes from list, this removing from names list
         balances.pop
