@@ -96,3 +96,16 @@ if option.strip().isnumeric():
     print(f"{option} + 5 = {ex}")
 else:
     print(f"{option} is not a number!")
+
+""" 
+parsing a string in order not to get an error is called error/exception handling
+standards of code is a lot higher now because we can type check and error handle
+
+/n stands for new line
+/t stands for tab
+i want to parse my poem string and seperate each line into its own element  of a list called lines
+.splitlines() <= splits a string into a list of strings at each new line
+"""
+poem = "roses are red\nviolets are blue\nsugar is sweet\nand so are you"
+lines = poem.splitlines()
+print(lines)
