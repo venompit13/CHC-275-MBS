@@ -75,4 +75,24 @@ elif option.strip() == "D":
 string matching was case sensitive
 2 functions that force string to be all uppercase or all lowercase
 .upper() and .lower()
+
+we have .lower() and .upper() to help with case sensitivity and .strip() to help with whitespace issues
+
+addition only works if both values are of the same data type
+if wrong crashes the whole program
+if we dont input a number into option it causes valuer error
+
+only typecasting we want is if they type in a number
+how dow we parse option? if else statement
+onyl typecast if user types in a number
+
+we have a function called isnumeric() that returns true if the string is a number
+
 """
+option = input("Enter your number: ")
+if option.strip().isnumeric():
+    option = int(option)
+    ex = option + 5
+    print(f"{option} + 5 = {ex}")
+else:
+    print(f"{option} is not a number!")
