@@ -21,8 +21,8 @@ for char in mystr:
     print(char)
 print("for i loop")
 for i in range(len(mystr)):
-    print(mystr[i])
-"""
+    print(mystr[i])"""
+
 """ 
 same ideas/behaviors from lists work for strings
 
