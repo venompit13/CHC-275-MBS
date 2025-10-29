@@ -10,30 +10,40 @@ Make a four function calculator that takes in 2 numbers per opperation
 3. print the difference
 """
 
-num1 = input("Enter numone: ")
-num1 = int(num1)
-num2 = input("Enter numtwo: ")
-num2 = int(num2)
-sum = num1 + num2
-print (f"The sum of {num1} and {num2} is {sum}")
+""" 
+write a 4 func calc where:
+    input strionog parsed
+    program does not close after one  operation
+    math operation is inside try-except block
+"""
+check = False
+while check == False:
+    option = input("Insert numbers or quit: ")
+    
+    num1 = input("Enter numone: ")
+    num1 = int(num1)
+    num2 = input("Enter numtwo: ")
+    num2 = int(num2)
+    sum = num1 + num2
+    print (f"The sum of {num1} and {num2} is {sum}")
 
-num3 = input("Enter num3: ")
-num3 = int(num3)
-num4 = input("Enter num4: ")
-num4 = int(num4)
-difference = num3 - num4
-print(f"The difference of {num3} and {num4} is {difference}")
+    num3 = input("Enter num3: ")
+    num3 = int(num3)
+    num4 = input("Enter num4: ")
+    num4 = int(num4)
+    difference = num3 - num4
+    print(f"The difference of {num3} and {num4} is {difference}")
 
-num5 = input("Enter num5: ")
-num5 = int(num5)
-num6 = input("Enter num6: ")
-num6 = int(num6)
-product = num5 * num6
-print(f"The product of {num5} and {num6} is {product}")
+    num5 = input("Enter num5: ")
+    num5 = int(num5)
+    num6 = input("Enter num6: ")
+    num6 = int(num6)
+    product = num5 * num6
+    print(f"The product of {num5} and {num6} is {product}")
 
-num7 = input("Enter num7: ")
-num7 = int(num7)
-num8 = input("Enter num8: ")
-num8 = int(num8)
-quotient = num7 / num8
-print(f"The quotient of {num7} and {num8} is {quotient}")
+    num7 = input("Enter num7: ")
+    num7 = int(num7)
+    num8 = input("Enter num8: ")
+    num8 = int(num8)
+    quotient = num7 / num8
+    print(f"The quotient of {num7} and {num8} is {quotient}")
