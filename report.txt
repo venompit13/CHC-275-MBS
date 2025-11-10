@@ -1,0 +1,4 @@
+MSFT avg 1 397.85 avg 2 395.6
+AMZN avg 1 399.45 avg 2 400.4
+NVDA avg 1 390.75 avg 2 396.2
+Buy ['AMZN', 'NVDA']
