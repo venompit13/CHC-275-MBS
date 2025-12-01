@@ -6,3 +6,4 @@ import pygame
 
 
 pygame.Color(55, 110, 165, 255)
+pygame.display.init()
