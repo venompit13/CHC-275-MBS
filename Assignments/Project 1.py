@@ -109,5 +109,6 @@ if result_number is not None:
 
     pygame.display.flip()
     clock.tick(FPS)
+    
 pygame.quit()
 sys.exit()
