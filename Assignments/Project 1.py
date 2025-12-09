@@ -2,18 +2,18 @@
 Docstring for Roulette
 My project will be a roulette like game using what we have learned throughout the year
 """
-#----IMPORTS----
+
 import pygame
 import random
 import sys
 
-#----CONSTANTS IN GAME----
+#CONSTANTS IN GAME
 WIDTH, HEIGHT = 800, 600
 FPS = 60
 WHEEL_RADIUS = 200
 CENTER = (WIDTH // 2, HEIGHT // 2)
 
-#----NUMBERS IN ROULETTE----
+#NUMBERS IN ROULETTE
 ROULETTE_NUMBERS = [
     (0, "green"),
     (32, "red"), (15, "black"), (19, "red"), (4, "black"), (21, "red"),
@@ -26,14 +26,14 @@ ROULETTE_NUMBERS = [
     (26, "black")
 ]
 
-#----GAME SETUP----
+#GAME SETUP
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("MBS Roulette Game")
 clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 36)
 
-#----HELPER FUNCTIONS----
+#HELPER FUNCTIONS
 def draw_wheel():
     #roulette wheel with colered segments
     num_segments = len(ROULETTE_NUMBERS)
@@ -61,14 +61,14 @@ def display_message(text, y_offset=0):
     msg_rect = msg_surface.get_rect(center=(WIDTH // 2, HEIGHT // 2 + y_offset))
     screen.blit(msg_surface, msg_rect)
     
-#----GAME STATE----
+#GAME STATE
 player_balance = 1000
 bet_amount = 100
 bet_choice = None
 result_number = None
 result_color = None
 
-#----MAIN GAME LOOP----
+#LOOP
 running = True
 while running:
     screen.fill((0, 100, 0))
@@ -97,7 +97,7 @@ while running:
                 else:
                     player_balance -= bet_amount
 
-#----DISPLAY INFO----
+#DISPLAY INFO
 display_message(f"Balance : ${player_balance}", -200)
 display_message(f"Press R for Red, B for Black, or G for Green", -150)
 display_message("Press SPACE to Spin")
