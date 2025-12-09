@@ -7,6 +7,10 @@ import pygame
 import random
 import sys
 
+#IMG
+file = open("pngtree-classic-game-of-roulette-wheel-number-success-black-vector-picture-image_9867016.png")
+file.close()
+
 #CONSTANTS IN GAME
 WIDTH, HEIGHT = 800, 600
 FPS = 60
