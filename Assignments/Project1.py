@@ -5,6 +5,19 @@ Pong
 
 import pygame, sys
 
+def pong_animation():
+    global pong_speed_x, pong_speed_y
+    pong.x += pong_speed_y
+    pong.y += pong_speed_x
+
+    if pong.top <= 0 or pong.bottom >= height:
+        pong_speed_y *= -1
+    if pong.left <= 0 or pong.right >= width:
+        pong_speed_x *= -1
+
+    if pong.colliderect(player) or pong.colliderect(opponent):
+        pong_speed_x *= -1
+
 pygame.init()
 clock = pygame.time.Clock()
 
@@ -27,13 +40,7 @@ pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
 
 pong_speed_x = 7
 pong_speed_y = 7
-pong.x += pong_speed_y
-pong.y += pong_speed_x
-
-if pong.top <= 0 or pong.bottom >= height:
-    pong_speed_y *= -1
-if pong.left <= 0 or pong.right >= width:
-    pong_speed_x *= -1
+player_speed = 0
 
 pygame.display.flip()
 clock.tick(60)
@@ -42,3 +49,16 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_DOWN:
+                player_speed +=7
+            if event.key == pygame.K_UP:
+                player_speed -=7
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                player_speed -=7
+            if event.key == pygame.K_UP:
+                player_speed +=7
+
+    pong_animation()
+    player.y += player_speed
