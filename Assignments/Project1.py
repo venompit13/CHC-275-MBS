@@ -14,13 +14,14 @@ def pong_animation():
     if pong.top <= 0 or pong.bottom >= height:
         pong_speed_y *= -1
     if pong.left <= 0 or pong.right >= width:
-        pong_speed_x *= -1
+        pong_restart()
 
     if pong.colliderect(player) or pong.colliderect(opponent):
         pong_speed_x *= -1
 
 def player_animation():
     player.y += player_speed
+
     if player.top <= 0:
         player.top = 0
     if player.bottom >= height:
@@ -29,8 +30,10 @@ def player_animation():
 def opponent_ai():
     if opponent.top < pong.y:
         opponent.top += opponent_speed
+
     if opponent.bottom > pong.y:
         opponent.bottom -= opponent_speed
+
     if opponent.top <= 0:
         opponent.top = 0
     if opponent.bottom >= height:
@@ -47,6 +50,9 @@ def controls():
                 player_speed -=7
             if event.key == pygame.K_UP:
                 player_speed +=7
+
+def pong_restart():
+    pong.center = (width/2, height/2)
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -79,13 +85,12 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+
+
     pong_animation()
     player_animation()
     opponent_ai() 
     controls()   
-        
+
     pygame.display.flip()
     clock.tick(60)
-        
-
-    
