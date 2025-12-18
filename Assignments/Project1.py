@@ -25,12 +25,10 @@ pygame.draw.rect(screen,light_gray, opponent)
 pygame.draw.ellipse(screen, light_gray, pong)
 pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
 
-pong_speed_x = 7
-pong_speed_y = 7
-
+pong_speed_x = 70
+pong_speed_y = 70
 pong.x += pong_speed_y
 pong.y += pong_speed_x
-
 
 
 pygame.display.flip()
