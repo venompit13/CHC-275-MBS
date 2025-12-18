@@ -8,15 +8,21 @@ import sys
 import random
 
 def pong_animation():
-    global pong_speed_x, pong_speed_y
+    global pong_speed_x, pong_speed_y, player_score, opponent_score
 
     pong.x += pong_speed_x
     pong.y += pong_speed_y
 
     if pong.top <= 0 or pong.bottom >= height:
         pong_speed_y *= -1
-    if pong.left <= 0 or pong.right >= width:
-        pong_restart()
+
+    if pong.left <= 0:
+        pong_start()
+        player_score += 1
+
+    if pong.right >= width:
+        pong_start()
+        opponent_score += 1
 
     if pong.colliderect(player) or pong.colliderect(opponent):
         pong_speed_x *= -1
@@ -42,7 +48,7 @@ def opponent_ai():
         opponent.bottom = height
     
 
-def pong_restart():
+def pong_start():
     global pong_speed_x, pong_speed_y
     pong.center = (width/2, height/2)
     pong_speed_y *= random.choice((1,-1))
@@ -67,6 +73,10 @@ pong_speed_x = 7 * random.choice((1,-1))
 pong_speed_y = 7 * random.choice((1,-1))
 player_speed = 0
 opponent_speed = 7
+
+player_score = 0
+opponent_score = 0
+basic_font = pygame.font.Font("freesansbold.ttf", 32)
 
 
 while True:
@@ -93,6 +103,12 @@ while True:
     pygame.draw.rect(screen,light_gray, opponent)
     pygame.draw.ellipse(screen, light_gray, pong)
     pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
+
+    player_text = basic_font.render(f"{player_score}",False,light_gray)
+    screen.blit(player_text,(660,0))
+
+    opponent_text = basic_font.render(f"{opponent_score}",False,light_gray)
+    screen.blit(opponent_text,(600,0))
                        
     pygame.display.flip()
     clock.tick(60)
