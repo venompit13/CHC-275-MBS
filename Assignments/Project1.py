@@ -10,16 +10,18 @@ import random
 def pong_animation():
     global pong_speed_x, pong_speed_y
 
-    pong.x += pong_speed_y
-    pong.y += pong_speed_x
+    pong.x += pong_speed_x
+    pong.y += pong_speed_y
 
     if pong.top <= 0 or pong.bottom >= height:
         pong_speed_y *= -1
+        print(pong.top, " ", pong.bottom)
     if pong.left <= 0 or pong.right >= width:
         pong_restart()
 
     if pong.colliderect(player) or pong.colliderect(opponent):
         pong_speed_x *= -1
+        print("here")
 
 def player_animation():
     global player_speed
@@ -73,11 +75,6 @@ opponent = pygame.Rect(10, height/2 - 70,10, 140)
  
 bg_color = pygame.Color('gray12')
 light_gray = (200,200,200)
-screen.fill(bg_color)
-pygame.draw.rect(screen,light_gray, player)
-pygame.draw.rect(screen,light_gray, opponent)
-pygame.draw.ellipse(screen, light_gray, pong)
-pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
 
 pong_speed_x = 7
 pong_speed_y = 7
@@ -91,11 +88,16 @@ while True:
             pygame.quit()
             sys.exit()
 
-
     pong_animation()
     player_animation()
     opponent_ai() 
-    controls()   
+    controls() 
 
+    screen.fill(bg_color)
+    pygame.draw.rect(screen,light_gray, player)
+    pygame.draw.rect(screen,light_gray, opponent)
+    pygame.draw.ellipse(screen, light_gray, pong)
+    pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
+                       
     pygame.display.flip()
     clock.tick(60)
