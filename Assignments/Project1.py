@@ -3,7 +3,9 @@ Docstring for Assignments.Project1
 Pong
 """
 
-import pygame, sys
+import pygame
+import sys
+import random
 
 def pong_animation():
     global pong_speed_x, pong_speed_y
@@ -20,6 +22,7 @@ def pong_animation():
         pong_speed_x *= -1
 
 def player_animation():
+    global player_speed
     player.y += player_speed
 
     if player.top <= 0:
@@ -28,6 +31,7 @@ def player_animation():
         player.bottom = height
 
 def opponent_ai():
+    global opponent_speed
     if opponent.top < pong.y:
         opponent.top += opponent_speed
 
@@ -40,16 +44,17 @@ def opponent_ai():
         opponent.bottom = height
 
 def controls():
+    global player_speed
     if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_DOWN:
-                player_speed +=7
+                player_speed += 7
             if event.key == pygame.K_UP:
-                player_speed -=7
+                player_speed -= 7
     if event.type == pygame.KEYUP:
             if event.key == pygame.K_DOWN:
-                player_speed -=7
+                player_speed -= 7
             if event.key == pygame.K_UP:
-                player_speed +=7
+                player_speed += 7
 
 def pong_restart():
     pong.center = (width/2, height/2)
