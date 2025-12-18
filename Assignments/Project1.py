@@ -7,6 +7,7 @@ import pygame, sys
 
 def pong_animation():
     global pong_speed_x, pong_speed_y
+
     pong.x += pong_speed_y
     pong.y += pong_speed_x
 
@@ -17,6 +18,35 @@ def pong_animation():
 
     if pong.colliderect(player) or pong.colliderect(opponent):
         pong_speed_x *= -1
+
+def player_animation():
+    player.y += player_speed
+    if player.top <= 0:
+        player.top = 0
+    if player.bottom >= height:
+        player.bottom = height
+
+def opponent_ai():
+    if opponent.top < pong.y:
+        opponent.top += opponent_speed
+    if opponent.bottom > pong.y:
+        opponent.bottom -= opponent_speed
+    if opponent.top <= 0:
+        opponent.top = 0
+    if opponent.bottom >= height:
+        opponent.bottom = height
+
+def controls():
+    if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_DOWN:
+                player_speed +=7
+            if event.key == pygame.K_UP:
+                player_speed -=7
+    if event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                player_speed -=7
+            if event.key == pygame.K_UP:
+                player_speed +=7
 
 pygame.init()
 clock = pygame.time.Clock()
@@ -41,24 +71,21 @@ pygame.draw.aaline(screen, light_gray, (width/2,0), (width/2,height))
 pong_speed_x = 7
 pong_speed_y = 7
 player_speed = 0
+opponent_speed = 7
 
-pygame.display.flip()
-clock.tick(60)
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_DOWN:
-                player_speed +=7
-            if event.key == pygame.K_UP:
-                player_speed -=7
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_DOWN:
-                player_speed -=7
-            if event.key == pygame.K_UP:
-                player_speed +=7
-
     pong_animation()
-    player.y += player_speed
+    player_animation()
+    opponent_ai() 
+    controls()   
+        
+    pygame.display.flip()
+    clock.tick(60)
+        
+
+    
