@@ -17,5 +17,28 @@ pros:
 cons:
     - kinda difficult to undewrstand what is happening in the program
     - we introduce a large level of abstraction that we ar enot used to so far
-    
+        - this includes "control flow being more complicated, in the sense that code execution has owners and services
+
 """
+
+#basic function example
+def foo(): #function header
+           #1 def keyword
+           #2 function name
+           #3 parameter list
+    #startiung from line 31, this is the function body. func needs to be indented
+    #when func ends, you must unindent
+    print("bar")
+
+foo() #remember using a func end name with ()
+
+""" 
+functions act like verbs in plain  english
+u can think of () as being period at end of sentence
+"""
+
+def add(x,y):
+    print(x + y)
+    
+add(6,7)
+add("foo","bar")
