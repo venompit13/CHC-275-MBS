@@ -42,3 +42,17 @@ def add(x,y):
     
 add(6,7)
 add("foo","bar")
+
+""" 
+mutable vs inmutable
+integers are unmutable
+all numeric types are inmutable
+
+lists are mutable
+anythung that can change iun length is mutable
+parameters that are mutable are pass by reference
+parameters that are inmutable pass by value
+
+pass by reference = parameter that actually gets passed in is the location in memory
+
+"""
