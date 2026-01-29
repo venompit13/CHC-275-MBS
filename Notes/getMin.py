@@ -15,7 +15,7 @@ def getMin(userList):
     while index < len(userList):
         if userList[index] < min_val:
             min_val = userList[index]
-
+        index += 1
     return min_val
 
 print(getMin([1, 2, 3, 4]))
