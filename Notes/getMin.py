@@ -5,3 +5,18 @@ For this assignment you will be writing a function called getMin() that has thes
     once the minimum is found, returns that value
 """
 
+def getMin(userList):
+    if not userList:
+        return None
+    
+    index = 0
+    min_val = userList[0]
+
+    while index < len(userList):
+        if userList[index] < min_val:
+            min_val = userList[index]
+
+    return min_val
+
+print(getMin([1, 2, 3, 4]))
+print(getMin([4, 3, 1, 3]))
