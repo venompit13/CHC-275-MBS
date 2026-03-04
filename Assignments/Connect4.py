@@ -21,7 +21,17 @@ def switchPlayer(player):
         return "O"
     
 def dropPiece(board,player,col):
-    
+    for i in range(len(board)):
+        if board[0][col] != 0:
+            return False
+        check = True
+        while check == True:
+            if board[i][col] == player:
+                i = i + 1
+            else:
+                board[i-1] = player
+                return True
+        
 
 def checkWinner(board,player):
     for i in range(len(board)):
