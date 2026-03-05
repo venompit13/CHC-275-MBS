@@ -24,13 +24,16 @@ def dropPiece(board,player,col):
     for i in range(len(board)):
         if board[0][col] != 0:
             return False
-        check = True
-        while check == True:
-            if board[i][col] == player:
-                i = i + 1
-            else:
-                board[i-1] = player
-                return True
+    check = True
+    while check == True:
+        if board[i][col] == player:
+            i = i + 1
+        else:
+            board[i-1] = player
+            return True
+    for i in range(len(board)):
+        board[i][col] = player
+        
         
 
 def checkWinner(board,player):
@@ -51,9 +54,10 @@ def checkWinner(board,player):
     return True
 
 def main():
-    ROWS = 6
-    COLUMNS = 7
-    BOARD = [
+    curr = "X"
+    rows = 6
+    cols = 7
+    board = [
         [0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0],
@@ -61,8 +65,13 @@ def main():
         [0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0],
     ]
-    CURRENT_PLAYER = "X"
-    CURRENT_PLAYER = switchPlayer()
+    player = "X"
+    while checkWinner(board,curr) != True:
+        curr = switchPlayer(curr)
+        drawBoard(board)
+        x = int(input("Enter Row: ").strip())
+        y = int(input("Enter Col: ").strip())
+        dropPiece(x,y,board,curr)
     
 if __name__ == "__main__":
     main()
