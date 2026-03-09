@@ -39,26 +39,28 @@ def dropPiece(board,player,col):
 def checkWinner(board,player):
     for i in range(len(board)):
         for j in range(len(board[0])):
-            if board[i][j] == board[i][j+1] == board[i][j+2] == board[i](j+3) == player:
-                print (f"{player} wins")
-                return True
-            if board[i][j] == board[i+1][j] == board[i+2][j] == board[i+3][j] == player:
-                print(f"{player} wins")
-                return True
-            if board[i][j] == board[i+1][j+1] == board[i+2][j+2] == board[i+3][j+3] == player:
-                print(f"{player}wins")
-                return True
-            if board[i][j] == board[i+1][j-1] == board[i+2][j-2] == board[i+3][j-3] ==player:
-                print(f"{player} wins")
-                return True
-            for row in board:
-                for space in row:
-                    if space == 0:
-                        return False
+            try:
+                if board[i][j] == board[i][j+1] == board[i][j+2] == board[i][j+3] == player:
+                    print (f"{player} wins")
+                    return True
+                if board[i][j] == board[i+1][j] == board[i+2][j] == board[i+3][j] == player:
+                    print(f"{player} wins")
+                    return True
+                if board[i][j] == board[i+1][j+1] == board[i+2][j+2] == board[i+3][j+3] == player:
+                    print(f"{player}wins")
+                    return True
+                if board[i][j] == board[i+1][j-1] == board[i+2][j-2] == board[i+3][j-3] ==player:
+                    print(f"{player} wins")
+                    return True
+            except:
+                pass
+    for row in board:
+        for space in row:
+            if space == 0:
+                return False
     return True
 
 def main():
-    curr = "X"
     rows = 6
     cols = 7
     board = [
@@ -70,11 +72,17 @@ def main():
         [0,0,0,0,0,0,0],
     ]
     player = "X"
-    while checkWinner(board,player) != True:
-        player = switchPlayer(player)
+    while True:
         drawBoard(board)
-        y = int(input("Enter Col: ").strip())
-        dropPiece(board,player,y)
+        print()
+        column = int(input("Player " + player + ", select a column (0-6) to drop your piece in: "))
+        dropPiece(board, player, column)
+        print()
+        if checkWinner(board, player):
+            drawBoard(board)
+            print("Player " + player + " won!")
+            break
+        player = switchPlayer(player)
     
 if __name__ == "__main__":
     main()
