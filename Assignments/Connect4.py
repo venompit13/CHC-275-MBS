@@ -20,37 +20,41 @@ def switchPlayer(player):
     elif player == "X":
         return "O"
     
-def dropPiece(board,player,col):
-    for i in range(len(board)):
-        if board[0][col] != 0:
-            return False
-    check = True
-    while check == True:
-        if board[i][col] == player:
+def dropPiece(board,player,col):  
+    if board[0][col] != 0:
+        print("Not possible!")
+        return False
+    i = 0
+    while i < len(board):
+        if board[i][col] == 0:
             i = i + 1
         else:
-            board[i-1] = player
+            board[i-1][col] = player
             return True
-    for i in range(len(board)):
-        board[i][col] = player
+    board[i-1][col] = player
+    return True
         
         
 
 def checkWinner(board,player):
     for i in range(len(board)):
-        if board[i][0] == board[i][1] == board[i][2] == player:
-            print (f"{player} wins")
-            return True
-    if board[0][0] == board[1][1] == board[2][2] == player:
-        print(f"{player} wins")
-        return True
-    if board[0][2] == board[1][1] == board[2][0] == player:
-        print(f"{player}wins")
-        return True
-    for row in board:
-        for space in row:
-            if space == 0:
-                return False
+        for j in range(len(board[0])):
+            if board[i][j] == board[i][j+1] == board[i][j+2] == board[i](j+3) == player:
+                print (f"{player} wins")
+                return True
+            if board[i][j] == board[i+1][j] == board[i+2][j] == board[i+3][j] == player:
+                print(f"{player} wins")
+                return True
+            if board[i][j] == board[i+1][j+1] == board[i+2][j+2] == board[i+3][j+3] == player:
+                print(f"{player}wins")
+                return True
+            if board[i][j] == board[i+1][j-1] == board[i+2][j-2] == board[i+3][j-3] ==player:
+                print(f"{player} wins")
+                return True
+            for row in board:
+                for space in row:
+                    if space == 0:
+                        return False
     return True
 
 def main():
@@ -66,12 +70,11 @@ def main():
         [0,0,0,0,0,0,0],
     ]
     player = "X"
-    while checkWinner(board,curr) != True:
-        curr = switchPlayer(curr)
+    while checkWinner(board,player) != True:
+        player = switchPlayer(player)
         drawBoard(board)
-        x = int(input("Enter Row: ").strip())
         y = int(input("Enter Col: ").strip())
-        dropPiece(x,y,board,curr)
+        dropPiece(board,player,y)
     
 if __name__ == "__main__":
     main()
