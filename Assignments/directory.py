@@ -122,7 +122,7 @@ def updateGrade (directory, student):
                 grade = float(input(f"Grade for {subject}: ").strip())
             except Exception as e:
                 print("ERROR: {e}")
-            grades(subject) = grade
+            grades(subject) == grade
             print(f"Added {subject}: {grade}")
         elif input1 == '4':
             check = True
@@ -197,5 +197,5 @@ def main():
         elif input1 == '7':
             check = True
 
-if__name__ == "__main__":
+if __name__ == "__main__":
     main()
